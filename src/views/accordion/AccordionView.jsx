@@ -5,6 +5,11 @@ function AccordionView() {
     const data = [
         {
             "header": "Header 1",
+            "customHeader":function(){
+                return(
+                    <span>Hey</span>
+                );
+            },
             "content": function () {
                 return (
                     <Fragment>
