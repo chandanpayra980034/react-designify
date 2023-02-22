@@ -5,7 +5,7 @@ export const AlertView = () => {
     const [message,setMessage] = useState(true)
     return (
         <Fragment>
-            {message&&<Alert type="success" msg="This is an example text"
+            {message&&<Alert type="dark" msg="This is an example text"
             icon={() => {
                 return (
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -13,6 +13,7 @@ export const AlertView = () => {
                     </svg>
                 )
             }}
+            
             bordered
             onClose={()=>{setMessage(!message)}}
             />}
