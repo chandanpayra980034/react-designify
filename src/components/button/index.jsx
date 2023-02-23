@@ -76,7 +76,7 @@ const ButtonSizes = [
         "class": "text-base px-6 py-3.5"
     }
 ]
-const ButtonRounded = [
+export const ButtonRounded = [
     {
         "rounded": "default",
         "class": "rounded"
@@ -90,7 +90,7 @@ const ButtonRounded = [
         "class": "rounded-full"
     }
 ]
-const ButtonShadow = [
+export const ButtonShadow = [
     {
         "shadow": "sm",
         "class": "drop-shadow-sm"

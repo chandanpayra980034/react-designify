@@ -5,6 +5,7 @@ import { AvatarView } from "./views/avatar/AvatarView"
 import { BadgeView } from "./views/badge/BadgeView"
 import { BreadCrumbView } from "./views/breadcrumb/BreadCrumbView"
 import { ButtonView } from "./views/button/ButtonView"
+import { CardView } from "./views/card/CardView"
 
 function App() {
   return (
@@ -17,7 +18,23 @@ function App() {
 }
 const Main = () => {
   return (
-    <div style={{ width: '50%', margin: "48px auto" }}>
+    <div style={{ margin: 16 }}>
+      {/* <AccordionView />
+      <BadgeView />
+      <ButtonView />
+      <AlertView />
+      <BreadCrumbView />
+      <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',gap:16}}>
+      <CardView />
+      <CardView />
+      <CardView />
+      <CardView />
+      <CardView />
+      <CardView />
+      <CardView />
+      <CardView />
+      <CardView />
+      </div> */}
       <ButtonView />
     </div>
   );
