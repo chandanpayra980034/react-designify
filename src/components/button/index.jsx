@@ -1,9 +1,10 @@
-export const Button = ({ type, text, size, rounded, gradient, gradientDuo, ring, shadow, hoverShadow, leftIcon, rightIcon, outline, buttonType, onClick }) => {
+export const Button = ({ type, text, size, rounded, gradient, gradientDuo, ring, shadow, hoverShadow, leftIcon, rightIcon, outline, buttonType, onClick,onlyIcon,disabled }) => {
     return (
-        <button type={buttonType ? buttonType : "button"} onClick={onClick} className={`${leftIcon || rightIcon ? "inline-flex items-center" : ""} ${shadow ? ButtonShadow?.find(e => e?.shadow === shadow)?.class : ""} ${hoverShadow ? `hover:${ButtonShadow?.find(e => e?.shadow === hoverShadow)?.class}` : ""} ${ring ? "focus:ring-4" : ""} ${rounded ? ButtonRounded?.find(e => e?.rounded === rounded)?.class : ButtonRounded?.find(e => e?.rounded === "default")?.class} ${size ? ButtonSizes?.find(e => e?.size === size)?.class : ButtonSizes?.find(e => e?.size === "md")?.class} ${type && !outline ? ButtonTypes?.find(e => e?.type === type)?.class : ""} ${(type && gradient) ? ButtonTypes?.find(e => e?.type === type)?.gradient : ""} ${(type && gradientDuo) ? ButtonTypes?.find(e => e?.type === type)?.gradientDuo : ""} ${outline && type ? ButtonTypes?.find(e => e?.type === type)?.outline : ""} transition duration-150 ease-in-out`.replace(/\s\s+/g, ' ')}>
+        <button disabled={disabled?true:false} type={buttonType ? buttonType : "button"} onClick={onClick} className={`${disabled?"!cursor-not-allowed":""} ${onlyIcon?"!p-2.5":""} ${leftIcon || rightIcon ? "inline-flex items-center" : ""} ${shadow ? ButtonShadow?.find(e => e?.shadow === shadow)?.class : ""} ${hoverShadow ? `hover:${ButtonShadow?.find(e => e?.shadow === hoverShadow)?.class}` : ""} ${ring ? "focus:ring-4" : ""} ${rounded ? ButtonRounded?.find(e => e?.rounded === rounded)?.class : ButtonRounded?.find(e => e?.rounded === "default")?.class} ${size ? ButtonSizes?.find(e => e?.size === size)?.class : ButtonSizes?.find(e => e?.size === "md")?.class} ${type && !outline ? ButtonTypes?.find(e => e?.type === type)?.class : ""} ${(type && gradient) ? ButtonTypes?.find(e => e?.type === type)?.gradient : ""} ${(type && gradientDuo) ? ButtonTypes?.find(e => e?.type === type)?.gradientDuo : ""} ${outline && type ? ButtonTypes?.find(e => e?.type === type)?.outline : ""} transition duration-150 ease-in-out`.replace(/\s\s+/g, ' ')}>
             {leftIcon && leftIcon()}
             {text}
             {rightIcon && rightIcon()}
+            {onlyIcon&&onlyIcon()}
         </button>
     );
 }
