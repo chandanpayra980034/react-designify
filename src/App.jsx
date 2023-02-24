@@ -1,4 +1,6 @@
+import { useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Button } from "./components/button"
 import AccordionView from "./views/accordion/AccordionView"
 import { AlertView } from "./views/alert/AlertView"
 import { AvatarView } from "./views/avatar/AvatarView"
@@ -7,6 +9,7 @@ import { BreadCrumbView } from "./views/breadcrumb/BreadCrumbView"
 import { ButtonView } from "./views/button/ButtonView"
 import { CardView } from "./views/card/CardView"
 import { CarouselView } from "./views/carousel/CarouselView"
+import { DrawerView } from "./views/drawer/DrawerView"
 
 function App() {
   return (
@@ -18,9 +21,11 @@ function App() {
   )
 }
 const Main = () => {
+  const [toggleDrawer, setToggleDrawer] = useState(false)
   return (
-    <div style={{ margin: 16 }}>
-      <CarouselView />
+    <div style={{ margin: 16, display: 'flex', justifyContent: 'center', alignItems: "center" }}>
+      <Button text="Toggle" type="dark" size="sm" onClick={() => { setToggleDrawer(!toggleDrawer) }} />
+      <DrawerView open={toggleDrawer} onClose={() => { setToggleDrawer(!toggleDrawer) }} />
     </div>
   );
 }
