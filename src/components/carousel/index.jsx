@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Button } from "../button";
 
-export const Carousel = ({ prev, next, images, name, container, imgContainer, imageStyle, indicator }) => {
+export const Carousel = ({ prev, next, images, name, container, imgContainer, imageStyle, indicator,controls }) => {
     const [activeSlide, setActiveSlide] = useState(0)
     const onPrev = () => {
         setActiveSlide(activeSlide === 0 ? images?.length - 1 : activeSlide - 1)
@@ -44,6 +44,7 @@ export const Carousel = ({ prev, next, images, name, container, imgContainer, im
                     })
                 }
             </div>}
+            {controls&&<Fragment>
             {
                 prev ? prev() :
                     <div className={"absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 group focus:outline-none"}>
@@ -68,11 +69,7 @@ export const Carousel = ({ prev, next, images, name, container, imgContainer, im
                         }} type="dark" />
                     </div>
             }
-            {/* <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to={0} />
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to={1} />
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to={2} />
-            </div> */}
+            </Fragment>}
         </div>
     );
 }
