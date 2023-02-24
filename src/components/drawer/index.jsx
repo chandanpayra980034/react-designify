@@ -22,13 +22,9 @@ export const Drawer = ({ open, onClose, dir }) => {
         }
     }, [open])
     return (
-        <div className={`bg-gray-800 p-3 text-white w-1/4 fixed overflow-y-auto top-0 ${dir ? Directions?.find(e => e?.dir === dir)?.class : Directions?.find(e => e?.dir === "left")?.class} z-40 h-screen transition-transform ${open ? "" : dir ? Directions?.find(e => e?.dir === dir)?.transition : Directions?.find(e => e?.dir === "left")?.transition}`}>
+        <div className={`bg-gray-800 p-3 text-white w-full h-1/4 fixed overflow-y-auto ${dir ? Directions?.find(e => e?.dir === dir)?.class : Directions?.find(e => e?.dir === "left")?.class} z-40 h-screen transition-transform ${open ? "" : dir ? Directions?.find(e => e?.dir === dir)?.transition : Directions?.find(e => e?.dir === "left")?.transition}`}>
             <div className="flex gap-y-3 flex-col">
                 <Button type="green" className={"w-full"} text="Home" />
-                <Button type="red" className={"w-full"} text="Home" />
-                <Button type="yellow" className={"w-full"} text="Home" />
-                <Button type="primary" className={"w-full"} text="Home" />
-                <Button type="purple" className={"w-full"} text="Home" />
             </div>
         </div>
     );
@@ -37,12 +33,17 @@ export const Drawer = ({ open, onClose, dir }) => {
 const Directions = [
     {
         "dir": "left",
-        "class": "left-0",
+        "class": "left-0 top-0",
         "transition": "-translate-x-full"
     },
     {
         "dir": "right",
-        "class": "right-0",
+        "class": "right-0 top-0",
         "transition": "translate-x-full"
+    },
+    {
+        "dir": "top",
+        "class": "right-0 top-0 left-0",
+        "transition": "-translate-y-full"
     }
 ]
