@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { Button } from "../button";
 
-export const Carousel = ({ prev, next }) => {
+export const Carousel = ({ prev, next, images, name, container, imgContainer, imageStyle, indicator }) => {
     const [activeSlide, setActiveSlide] = useState(0)
     const onPrev = () => {
-        setActiveSlide(activeSlide === 0 ? 2 : activeSlide - 1)
+        setActiveSlide(activeSlide === 0 ? images?.length - 1 : activeSlide - 1)
     }
     const onNext = () => {
-        setActiveSlide(activeSlide === 2 ? 0 : activeSlide + 1)
+        setActiveSlide(activeSlide === images?.length - 1 ? 0 : activeSlide + 1)
     }
     useEffect(() => {
-        let nodes = document.querySelectorAll(".carouselChild")
+        let id = `.${name}carouselChild`
+        let nodes = document.querySelectorAll(id)
         for (let i = 0; i < nodes?.length; i++) {
             if (activeSlide === i) {
                 nodes[i].classList.remove("hidden")
@@ -22,21 +23,30 @@ export const Carousel = ({ prev, next }) => {
     }, [activeSlide])
     return (
         <div className="relative">
-            <div className="relative h-56 overflow-hidden rounded-lg md:h-96" id="carousel">
-                <div className="hidden carouselChild duration-700 ease-in-out">
-                    <span className="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                    <img src="https://picsum.photos/1300/500" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                </div>
-                <div className="hidden carouselChild duration-700 ease-in-out">
-                    <img src="https://picsum.photos/1301/500" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                </div>
-                <div className="hidden carouselChild duration-700 ease-in-out">
-                    <img src="https://picsum.photos/1302/500" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                </div>
+            <div className={`relative h-36 overflow-hidden rounded-lg md:h-96 ${container?.class ? container?.class : ""}`} style={container?.style}>
+                {images && images instanceof Array && images?.length > 0 &&
+                    images?.map((elem, index) => {
+                        return (
+                            <div key={index} className={`hidden ${name}carouselChild rounded-lg transition duration-700 ease-in-out ${imgContainer?.class ? imgContainer?.class : ""}`} style={imgContainer?.style}>
+                                <img src={elem?.img} className="absolute block w-full rounded-lg -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={elem?.alt} style={imageStyle} />
+                            </div>
+                        );
+                    })
+                }
             </div>
+            {indicator && <div style={indicator?.style} className={`absolute bg-gray-800 py-1.5 px-2.5 rounded-full z-30 flex items-center space-x-2.5 -translate-x-1/2 bottom-5 left-1/2 ${indicator?.class ? indicator?.class : ""}`}>
+                {
+                    images && images instanceof Array && images?.length > 0 &&
+                    images?.map((elem, index) => {
+                        return (
+                            <button key={index} onClick={() => { setActiveSlide(index) }} type="button" className={`${activeSlide === index ? "scale-150" : "scale-100"} w-2 h-2 bg-white rounded-full transition duration-700 ease-in-out`} />
+                        );
+                    })
+                }
+            </div>}
             {
                 prev ? prev() :
-                    <div className={"absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"}>
+                    <div className={"absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 group focus:outline-none"}>
                         <Button onClick={onPrev} rounded="full" onlyIcon={() => {
                             return (
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
@@ -48,7 +58,7 @@ export const Carousel = ({ prev, next }) => {
             }
             {
                 next ? next() :
-                    <div className={"absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"}>
+                    <div className={"absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 group focus:outline-none"}>
                         <Button onClick={onNext} rounded="full" onlyIcon={() => {
                             return (
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
