@@ -23,9 +23,17 @@ function App() {
 const Main = () => {
   const [toggleDrawer, setToggleDrawer] = useState(false)
   return (
-    <div style={{ margin: 16, display: 'flex', justifyContent: 'center', alignItems: "center" }}>
-      <Button text="Toggle" type="dark" size="sm" onClick={() => { setToggleDrawer(!toggleDrawer) }} />
-      <DrawerView open={toggleDrawer} onClose={() => { setToggleDrawer(!toggleDrawer) }} />
+    <div style={{ margin: 16 }}>
+      {/* <Button text="Toggle" type="dark" size="sm" onClick={() => { setToggleDrawer(!toggleDrawer) }} />
+      <DrawerView open={toggleDrawer} onClose={() => { setToggleDrawer(!toggleDrawer) }} /> */}
+      <CarouselView />
+      <ButtonView />
+      <AccordionView />
+      <BadgeView />
+      <CardView />
+      <AlertView />
+      <AvatarView />
+      <BreadCrumbView />
     </div>
   );
 }

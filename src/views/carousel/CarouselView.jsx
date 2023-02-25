@@ -33,6 +33,7 @@ export const CarouselView = () => {
                 ]
             }
             controls
+            indicator
         />
     );
 }
