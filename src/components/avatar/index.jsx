@@ -5,15 +5,15 @@ export const Avatar = ({ src, alt, type, size, style, icon, text, textStyle, onC
         <Fragment>
             {src && <img
                 onClick={onClick}
-                className={`${type ? AvatarTypes.find(e => e?.type === type)?.class : ""} ${size ? AvatarSizes.find(e => e?.size === size)?.class : ""}`}
+                className={`${onClick ? "cursor-pointer" : ""} ${type ? AvatarTypes.find(e => e?.type === type)?.class : ""} ${size ? AvatarSizes.find(e => e?.size === size)?.class : ""}`}
                 src={src}
                 alt={alt}
                 style={style}
             />}
-            {icon && <div onClick={onClick} style={style} className={`flex items-center justify-center p-2 bg-gray-100 ${type ? AvatarTypes.find(e => e?.type === type)?.class : ""} ${size ? AvatarSizes.find(e => e?.size === size)?.class : ""}`}>
+            {icon && <div onClick={onClick} style={style} className={`${onClick ? "cursor-pointer" : ""} flex items-center justify-center p-2 bg-gray-100 ${type ? AvatarTypes.find(e => e?.type === type)?.class : ""} ${size ? AvatarSizes.find(e => e?.size === size)?.class : ""}`}>
                 {icon()}
             </div>}
-            {text && <div onClick={onClick} style={style} className={`flex items-center justify-center p-2 bg-gray-100 overflow-hidden ${type ? AvatarTypes.find(e => e?.type === type)?.class : ""} ${size ? AvatarSizes.find(e => e?.size === size)?.class : ""}`}>
+            {text && <div onClick={onClick} style={style} className={`${onClick ? "cursor-pointer" : ""} flex items-center justify-center p-2 bg-gray-100 overflow-hidden ${type ? AvatarTypes.find(e => e?.type === type)?.class : ""} ${size ? AvatarSizes.find(e => e?.size === size)?.class : ""}`}>
                 <span style={textStyle} className="font-medium text-gray-600">{text}</span>
             </div>}
         </Fragment>
@@ -32,8 +32,8 @@ const AvatarTypes = [
 ]
 const AvatarSizes = [
     {
-        "size":"xs",
-        "class":"w-6 h-6"
+        "size": "xs",
+        "class": "w-6 h-6"
     },
     {
         "size": "sm",
@@ -48,7 +48,7 @@ const AvatarSizes = [
         "class": "w-20 h-20"
     },
     {
-        "size":"xl",
-        "class":"w-36 h-36"
+        "size": "xl",
+        "class": "w-36 h-36"
     }
 ]
