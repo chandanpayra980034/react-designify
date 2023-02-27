@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { ActivityIndicator } from "./components/activityIndicator"
 import { Avatar } from "./components/avatar"
 import { Button } from "./components/button"
 import { Drawer } from "./components/drawer"
@@ -7,6 +8,7 @@ import { Dropdown } from "./components/dropdown"
 import { Form } from "./components/form"
 import { Input } from "./components/form/input/Input"
 import { Portal } from "./components/portal/Portal"
+import { Position } from "./components/position"
 import AccordionView from "./views/accordion/AccordionView"
 import { AlertView } from "./views/alert/AlertView"
 import { AvatarView } from "./views/avatar/AvatarView"
@@ -29,7 +31,10 @@ function App() {
 const Main = () => {
   const [toggleDrawer, setToggleDrawer] = useState(false)
   return (
-    <div style={{ margin: 16 }}>
+    <div className="h-96" style={{ padding: 16, position: "relative" }}>
+      <Position position="middle center">
+        <ActivityIndicator size="md" type="green" />
+      </Position>
       {/* <Button type="dark" onlyIcon={() => {
         return (
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
@@ -44,9 +49,9 @@ const Main = () => {
           </div>
         </Drawer>
       </Portal> */}
-      <Form>
-        <Input activeOutlineColor={"yellow"} />
-      </Form>
+      {/* <Form>
+        <Input placeholder={"Email"} />
+      </Form> */}
       {/*<CarouselView />
       <ButtonView />
       <AccordionView />
