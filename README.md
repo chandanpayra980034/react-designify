@@ -1,1 +1,5 @@
-# react-designify[README.md](https://github.com/chandanpayra980034/react-designify/files/10849973/README.md)
+# The react-designify package
+
+The react-designify package comes with a variety of in-built custom components that will reduce your time building components.
+
+We are constantly trying to improve this package.
