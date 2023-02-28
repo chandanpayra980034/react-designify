@@ -10,7 +10,7 @@ export const Badge = ({ text, type, size, bordered, roundedFull, icon, onClick, 
         </span>
     );
 }
-const BadgeTypes = [
+export const BadgeTypes = [
     {
         "type": "default",
         "class": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",

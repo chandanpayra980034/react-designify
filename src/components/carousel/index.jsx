@@ -46,7 +46,7 @@ export const Carousel = ({ prev, next, images, name, container, imgContainer, im
             </div>}
             {controls&&<Fragment>
             {
-                prev ? prev() :
+                prev ? prev(onPrev) :
                     <div className={"absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 group focus:outline-none"}>
                         <Button onClick={onPrev} rounded="full" onlyIcon={() => {
                             return (
@@ -58,7 +58,7 @@ export const Carousel = ({ prev, next, images, name, container, imgContainer, im
                     </div>
             }
             {
-                next ? next() :
+                next ? next(onNext) :
                     <div className={"absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 group focus:outline-none"}>
                         <Button onClick={onNext} rounded="full" onlyIcon={() => {
                             return (
