@@ -1,6 +1,6 @@
 export const Position = ({ position, className, style, children }) => {
     return (
-        <div style={style} className={`${position ? Positions?.find(e => e?.position === position)?.class : Positions?.find(e => e?.position === "top left")?.class} ${className ? className : ""}`}>
+        <div style={style} className={`${position ? Positions.find(e => e?.position === position)?.class : Positions.find(e => e?.position === "top left")?.class} ${className ? className : ""}`}>
             {children}
         </div>
     );

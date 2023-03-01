@@ -22,7 +22,7 @@ export const Drawer = ({ open, onClose, dir, style, className, children, overlay
         }
     }, [open, overlayColor])
     return (
-        <div style={style} className={`bg-gray-800 p-3 text-white fixed overflow-y-auto ${dir ? Directions?.find(e => e?.dir === dir)?.class : Directions?.find(e => e?.dir === "left")?.class} z-40 transition-transform ${open ? "" : dir ? Directions?.find(e => e?.dir === dir)?.transition : Directions?.find(e => e?.dir === "left")?.transition} ${className ? className : ""}`}>
+        <div style={style} className={`bg-gray-800 p-3 text-white fixed overflow-y-auto ${dir ? Directions.find(e => e?.dir === dir)?.class : Directions.find(e => e?.dir === "left")?.class} z-40 transition-transform ${open ? "" : dir ? Directions.find(e => e?.dir === dir)?.transition : Directions.find(e => e?.dir === "left")?.transition} ${className ? className : ""}`}>
             {children}
         </div>
     );

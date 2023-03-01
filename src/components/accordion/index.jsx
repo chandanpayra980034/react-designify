@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 
 export const Accordion = (props) => {
-    const [activeIndex, setActiveIndex] = useState(props?.data?.findIndex(e => e.active === true))
+    const [activeIndex, setActiveIndex] = useState(props?.data.findIndex(e => e.active === true))
     return (
         <Fragment>
             {

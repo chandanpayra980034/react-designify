@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Button } from "./components/button";
-import { Flex } from "./components/flex";
+import { Flex, FlexRow } from "./components/flex";
 import { List } from "./components/list";
 
 function App() {
@@ -15,13 +15,18 @@ function App() {
 const Main = () => {
   return (
     <div style={{ padding: 16, position: "relative" }}>
-      <Flex dir="row" gapY="4" gapX="2" align="start" justify="center">
-        <Button text="First" type="primary" />
-        <Button text="Second" type="dark" />
-        <Button text="Third" type="green" />
-        <Button text="Fourth" type="red" />
-        <Button text="Fifth" type="yellow" />
-        <Button text="Sixth" type="light" />
+      <Flex dir="row" className="space-x-4" wrap="nowrap">
+        <FlexRow size="1/3" style={{ height: 100, background: "red" }}>
+        </FlexRow>
+        <FlexRow size="1/3" style={{ height: 100, background: "blue" }}>
+        </FlexRow>
+        <FlexRow size="1/3" style={{ height: 100, background: "green" }}>
+        </FlexRow>
+        {/* <Button text="Dark" type="dark" />
+        <Button text="Green" type="green" />
+        <Button text="Red" type="red" />
+        <Button text="Yellow" type="yellow" />
+        <Button text="Light" type="light" /> */}
       </Flex>
     </div>
   );

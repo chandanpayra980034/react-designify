@@ -16,7 +16,7 @@ export const List = ({ data, container, type, size, activeColor,borderLess }) =>
                             {
                                 typeof elem?.item === "function" ?
                                     elem?.item() :
-                                    <li onClick={() => { if (elem?.onClick) { elem?.onClick(index); onItemClick(index) } }} className={`${size ? ButtonSizes?.find(e => e?.size === size)?.class : ButtonSizes?.find(e => e?.size === "md")?.class} ${type ? ButtonTypes?.find(e => e?.type === type)?.class : ""} flex items-center gap-x-2 cursor-pointer ${elem?.rightIcon ? "justify-between" : ""} ${index < data?.length - 1 && !borderLess ? "border-b" : ""} ${(activeColor && activeItem === index) ? ButtonTypes?.find(e => e?.type === type)?.active : ""}`}>
+                                    <li onClick={() => { if (elem?.onClick) { elem?.onClick(index); onItemClick(index) } }} className={`${size ? ButtonSizes.find(e => e?.size === size)?.class : ButtonSizes.find(e => e?.size === "md")?.class} ${type ? ButtonTypes.find(e => e?.type === type)?.class : ""} flex items-center gap-x-2 cursor-pointer ${elem?.rightIcon ? "justify-between" : ""} ${index < data?.length - 1 && !borderLess ? "border-b" : ""} ${(activeColor && activeItem === index) ? ButtonTypes.find(e => e?.type === type)?.active : ""}`}>
                                         {elem?.leftIcon && elem?.leftIcon()}
                                         {elem?.item && elem?.item}
                                         {elem?.rightIcon && elem?.rightIcon()}
