@@ -8,7 +8,7 @@ export const ActivityIndicator = ({ size, type, transparent, style }) => {
         </Fragment>
     );
 }
-const Sizes = [
+export const Sizes = [
     {
         "size": "xs",
         "class": "w-4 h-4"
