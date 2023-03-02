@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { CheckBox } from "./components/form/checkbox";
 import { Flex } from "./components/flex"
-import {List} from "./components/list"
+import { List } from "./components/list"
+import { RadioButton, RadioButtonGroup } from "./components/form/radiobutton";
+import {useState,useEffect} from "react"
 function App() {
   return (
     <BrowserRouter>
@@ -12,21 +14,33 @@ function App() {
   )
 }
 const Main = () => {
+  const [value, setValue] = useState(2)
+  useEffect(()=>{
+    console.log(value)
+  },[value])
   return (
     <div style={{ padding: 16, position: "relative" }}>
-      <Flex gapX="2" dir="row">
-        <CheckBox style={{ width: 24, height: 24 }} defaultChecked />
-        <CheckBox />
-      </Flex>
-      {/* <Flex dir="row" className="space-x-4" wrap="nowrap">
-        <FlexRow size="1/3" style={{ height: 100, background: "red" }}>
-        </FlexRow>
-        <FlexRow size="1/3" style={{ height: 100, background: "blue" }}>
-        </FlexRow>
-        <FlexRow size="1/3" style={{ height: 100, background: "green" }}>
-        </FlexRow>
-      </Flex> */}
-      {/* <Button text="Check" type="primary" /> */}
+      <RadioButtonGroup
+        value={value}
+        onChange={setValue}
+        data={[
+          {
+            "label": "First",
+            "value": 1,
+            "inputRest": {
+              "value": "First"
+            }
+          },
+          {
+            "label": "Second",
+            "value": 2
+          },
+          {
+            "label": "Third",
+            "value": 3
+          }
+        ]}
+      />
     </div>
   );
 }
