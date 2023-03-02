@@ -15,14 +15,12 @@ function App() {
 }
 const Main = () => {
   const [value, setValue] = useState(2)
-  useEffect(()=>{
-    console.log(value)
-  },[value])
   return (
     <div style={{ padding: 16, position: "relative" }}>
       <RadioButtonGroup
         value={value}
         onChange={setValue}
+        horizontal
         data={[
           {
             "label": "First",

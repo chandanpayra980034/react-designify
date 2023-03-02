@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Sizes } from "../../activityIndicator";
 import { Flex } from "../../flex";
-import "./style.css"
 export const RadioButton = ({ defaultChecked, onChange, size, style, ...rest }) => {
     const [value, setValue] = useState(defaultChecked ? true : false)
     const onToggle = () => {
@@ -37,9 +36,9 @@ export const RadioButtonGroup = ({ data, horizontal, value, onChange }) => {
                     data.map((elem, index) => {
                         return (
                             <div className="flex items-center gap-x-2" key={index}>
-                                <div onClick={() => { setState(elem.value) }} className="cursor-pointer relative w-6 h-6 flex items-center justify-center bg-gray-100 rounded-full">
+                                <div onClick={() => { setState(elem.value) }} className="cursor-pointer relative w-6 h-6 flex items-center justify-center border border-green-400 bg-gray-100 rounded-full">
                                     <input {...elem.inputRest} type="radio" className="custom-radio hidden" defaultChecked={state === elem.value} onClick={() => { setState(elem.value) }} />
-                                    <div className={`custom-radio-alter ${elem.value === state ? "scale-100 bg-green-700" : "scale-0"} rounded-full h-3.5 w-3.5 transition duration-500 ease-in-out`}></div>
+                                    <div className={`custom-radio-alter ${elem.value === state ? "scale-100 bg-green-400" : "scale-0"} rounded-full h-4 w-4 transition duration-500 ease-in-out`}></div>
                                 </div>
                                 <label className="text-sm font-medium text-gray-900 cursor-pointer" onClick={() => { setState(elem.value) }}>{elem.label}</label>
                             </div>
